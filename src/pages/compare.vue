@@ -12,13 +12,24 @@
                     <h3 @click="i.a=2" :class="{'h3-active': i.a==2}">三、VUE.JS</h3>
                 </li>
                 <li>
-                    <h3 @click="i.a=3" :class="{'h3-active': i.a==3}">四、开始</h3>
-                    <ul style="padding-left:30px;">
+                    <h3 @click="i.a=3" :class="{'h3-active': i.a==3}">四、创建</h3>
+                    <ul v-show="i.a==3" style="padding-left:30px;">
                         <li>
                             <h5 @click="i.a=3;i.b=0" :class="{'h5-active': i.a==3 && i.b==0}">1. 安装</h5>
                         </li>
                         <li>
                             <h5 @click="i.a=3;i.b=1" :class="{'h5-active': i.a==3 && i.b==1}">2. 目录</h5>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h3 @click="i.a=4" :class="{'h3-active': i.a==4}">五、指令</h3>
+                    <ul v-show="i.a==4" style="padding-left:30px;">
+                        <li>
+                            <h5 @click="i.a=4;i.b=0" :class="{'h5-active': i.a==4 && i.b==0}">1. 简介</h5>
+                        </li>
+                        <li>
+                            <h5 @click="i.a=4;i.b=1" :class="{'h5-active': i.a==4 && i.b==1}">2. xxx</h5>
                         </li>
                     </ul>
                 </li>
@@ -60,6 +71,7 @@
             <!-- 三、Vue.js -->
             <div v-show="i.a==2">
                 <p><b>Vue.js 的核心思想</b></p>
+                <p>如果你之前已经习惯了用jQuery操作DOM，学习Vue.js时请先抛开手动操作DOM的思维，因为Vue.js是数据驱动的，你无需手动操作DOM。它通过一些特殊的HTML语法，将DOM和数据绑定起来。一旦你创建了绑定，DOM将和数据保持同步，每当变更了数据，DOM也会相应地更新。</p>
                 <ul style="margin-top:30px;">
                     <li>
                         <b>&nbsp;&nbsp;&nbsp;&nbsp;1.</b>
@@ -92,7 +104,7 @@
                     </li>
                 </ul>
             </div>
-            <!-- 四、开始 -->
+            <!-- 四、创建 -->
             <div v-show="i.a==3">
                 <!-- 1. 安装 -->
                 <div v-show="i.a==3 && i.b==0">
@@ -107,7 +119,10 @@
                     </div>
                 </div>
             </div>
-
+            <!-- 五、指令 -->
+            <div v-show="i.a==4">
+                
+            </div>
         </main>
     </div>
 </template>
