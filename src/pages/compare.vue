@@ -1,7 +1,7 @@
 <template>
     <div class="compare">
         <section>
-            <ul>
+            <ul style="padding-left:20px;">
                 <li>
                     <h3 @click="i.a=0" :class="{'h3-active': i.a==0}">一、MVC</h3>
                 </li>
@@ -15,7 +15,10 @@
                     <h3 @click="i.a=3" :class="{'h3-active': i.a==3}">四、开始</h3>
                     <ul style="padding-left:30px;">
                         <li>
-                            <h5 @click="i.a=3;i.b=0" :class="{'h5-active': i.a==3&&i.b==0}">1. 安装</h5>
+                            <h5 @click="i.a=3;i.b=0" :class="{'h5-active': i.a==3 && i.b==0}">1. 安装</h5>
+                        </li>
+                        <li>
+                            <h5 @click="i.a=3;i.b=1" :class="{'h5-active': i.a==3 && i.b==1}">2. 目录</h5>
                         </li>
                     </ul>
                 </li>
@@ -97,9 +100,11 @@
                         <img src="../assets/vue_cli.png" alt="">
                     </div>
                 </div>
-                <!-- 2. 安装 -->
+                <!-- 2. 目录结构 -->
                 <div v-show="i.a==3 && i.b==1">
-4.1
+                    <div style="text-align:center; margin-top:60px;">
+                        <img src="../assets/catalog.png" alt="">
+                    </div>
                 </div>
             </div>
 
