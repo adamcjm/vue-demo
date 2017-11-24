@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import home from '@/pages/home'
 import compare from '@/pages/compare'
 
+
 import 'static/index'
 
 Vue.use(Router)

@@ -48,6 +48,9 @@
                 <li>
                     <h3 @click="i.a=5" :class="{'h3-active': i.a==5}">六、生命周期</h3>
                 </li>
+                <li>
+                    <h3 @click="i.a=6" :class="{'h3-active': i.a==6}">七、组件</h3>
+                </li>
             </ul>
         </section>
         <main>
@@ -194,6 +197,13 @@
                 <h1>生命周期</h1>
                 <div style="padding-left:120px;">
                     <img src="../assets/lifetime.png" alt="" style="zoom:0.5">
+                </div>
+            </div>
+            <!-- 七、组件 -->
+            <div v-show="i.a==6">
+               <p><b>组件 (Component)</b> 是 Vue.js 最强大的功能之一。组件可以扩展 HTML 元素，封装可重用的代码。在较高层面上，组件是自定义元素，Vue.js 的编译器为它添加特殊功能。</p>
+                <div style="text-align:center;">
+                    <button>学习组件去</button>
                 </div>
             </div>
         </main>
