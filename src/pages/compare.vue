@@ -29,9 +29,24 @@
                             <h5 @click="i.a=4;i.b=0" :class="{'h5-active': i.a==4 && i.b==0}">1. 简介</h5>
                         </li>
                         <li>
-                            <h5 @click="i.a=4;i.b=1" :class="{'h5-active': i.a==4 && i.b==1}">2. xxx</h5>
+                            <h5 @click="i.a=4;i.b=1" :class="{'h5-active': i.a==4 && i.b==1}">2. v-model</h5>
+                        </li>
+                        <li>
+                            <h5 @click="i.a=4;i.b=2" :class="{'h5-active': i.a==4 && i.b==2}">1. v-if</h5>
+                        </li>
+                        <li>
+                            <h5 @click="i.a=4;i.b=3" :class="{'h5-active': i.a==4 && i.b==3}">1. v-for</h5>
+                        </li>
+                        <li>
+                            <h5 @click="i.a=4;i.b=4" :class="{'h5-active': i.a==4 && i.b==4}">1. v-bind</h5>
+                        </li>
+                        <li>
+                            <h5 @click="i.a=4;i.b=5" :class="{'h5-active': i.a==4 && i.b==5}">1. v-on</h5>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <h3 @click="i.a=5" :class="{'h3-active': i.a==5}">六、生命周期</h3>
                 </li>
             </ul>
         </section>
@@ -121,7 +136,65 @@
             </div>
             <!-- 五、指令 -->
             <div v-show="i.a==4">
-                
+                <!-- 1. 简介 -->
+                <div v-show="i.a==4 && i.b==0" >
+                    <div style="margin-top:120px; padding-left:30px;">
+                        <p>v-model、v-if、v-show、v-else、v-else-if、v-for、v-bind(可简写为 : )、v-on(可简写为 @ )</p>
+                        <ul style="padding-left:30px;">
+                            <li style="margin-bottom:10px;"><b style="color:rgb(79,192,141)">v-model</b>: <span>表单输入绑定</span></li>
+                            <li style="margin-bottom:10px;"><b style="color:rgb(79,192,141)">v-if</b>: <span>条件渲染指令，根据其表达式的bool值进行判断是否渲染该元素；</span></li>
+                            <li style="margin-bottom:10px;"><b style="color:rgb(79,192,141)">v-show</b>: <span>条件显示指令，根据其表达式的bool值进行判断是否显示该元素；</span></li>
+                            <li style="margin-bottom:10px;"><b style="color:rgb(79,192,141)">v-else</b>: <span>v-else必须跟在v-if/v-show指令之后，不然不起作用,与v-if/v-show搭配使用</span></li>
+                            <li style="margin-bottom:10px;"><b style="color:rgb(79,192,141)">v-else-if</b></li>
+                            <li style="margin-bottom:10px;"><b style="color:rgb(79,192,141)">v-for</b>: <span>遍历，用法为 <pre style="display:inline;">v-for="(item,index) in items"</pre>items是数组，item是数组元素，index是数组索引；不用index，可简写：<pre style="display:inline;">v-for="item in items"</pre></span></li> 
+                            <li style="margin-bottom:10px;"><b style="color:rgb(79,192,141)">v-bind</b>: <span>这个指令用于响应式的更新HTML显示特性，比如绑定某个class或者style。也可以绑定自定义属性。</span></li>
+                            <li style="margin-bottom:10px;"><b style="color:rgb(79,192,141)">v-on</b>: <span>用于监听指定元素的DOM事件，比如点击事件。</span> <pre style="display:inline;">v-on:click="doWhat" </pre> 或者简写为 <pre style="display:inline;"> @click="doWhat"</pre></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- 2. v-model -->
+                <div v-show="i.a==4 && i.b==1">
+                    <h1>v-model</h1>
+                    <div>
+                            <input type="text" v-model="myInput">
+                            <p>{{myInput}}</p>
+                    </div>
+                </div>
+                <!-- 3. v-if -->
+                <div v-show="i.a==4 && i.b==2">
+                    <h1>v-if</h1>
+                    <div>
+                        <p v-show="xiaban">下班了</p>
+                    </div>
+                </div>
+                <!-- 4. v-for -->
+                <div v-show="i.a==4 && i.b==3">
+                    <h1>v-for</h1>
+                    <div>
+
+                    </div>
+                </div>
+                <!-- 5. v-bind -->
+                <div v-show="i.a==4 && i.b==4">
+                    <h1>v-bind</h1>
+                    <div>
+
+                    </div>
+                </div>
+                <!-- 6. v-on -->
+                <div v-show="i.a==4 && i.b==5">
+                    <h1>v-on</h1>
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- 六、生命周期 -->
+            <div v-show="i.a==5">
+                <h1>生命周期</h1>
+                <div style="padding-left:120px;">
+                    <img src="../assets/lifetime.png" alt="" style="zoom:0.5">
+                </div>
             </div>
         </main>
     </div>
@@ -129,13 +202,26 @@
 <script>
 export default {
   name: 'compare',
+  components:{},
   data () {
       return {
           i: {
               a: 0,
               b: 0
-          }
+          },
+          myInput:'',
+          xiaban:false
       }
+  },
+//   created      (){alert(0)},
+//   beforeMount  (){alert(1)},
+//   mounted      (){alert(2)},
+//   beforeUpdate (){alert(3)},
+//   updated      (){alert(4)},
+//   beforeDestroy(){alert(5)},
+//   destroyed    (){alert(6)},
+  methods:{
+      
   }
 }
 </script>
